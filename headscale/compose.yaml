@@ -1,6 +1,6 @@
 services:
   headscale:
-    image: 'headscale/headscale:latest'
+    image: 'headscale/headscale:0.29.2'
     container_name: 'headscale'
     restart: 'unless-stopped'
     command: 'serve'
@@ -22,7 +22,9 @@ services:
       - traefik_proxy_network
 
   headscale-admin:
-    image: 'goodieshq/headscale-admin:latest'
+    # TODO: Change from dev version
+    # Currently its needed to avoid failed to authorized API key
+    image: 'goodieshq/headscale-admin:dev'
     container_name: 'headscale-admin'
     restart: 'unless-stopped'
 
